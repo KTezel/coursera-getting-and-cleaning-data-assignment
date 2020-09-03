@@ -1,7 +1,7 @@
-1. Download the dataset
-Dataset downloaded and extracted. Specify the folder that you would like to extract the data to and set the working directory to point at this folder.
+**1. Download the dataset**
+	Dataset downloaded and extracted. Specify the folder that you would like to extract the data to and set the working directory to point at this folder.
 
-2.Assign each data to variables
+**2.Assign each data to variables**
 	features <- features.txt : 561 rows, 2 columns
 	The features selected for this database come from the accelerometer and gyroscope 3-axial raw signals tAcc-XYZ and tGyro-XYZ.
 	activities <- activity_labels.txt : 6 rows, 2 columns
@@ -19,19 +19,19 @@ Dataset downloaded and extracted. Specify the folder that you would like to extr
 	y_train <- test/y_train.txt : 7352 rows, 1 columns
 	contains train data of activities’code labels
 
-3.Merges the training and the test sets to create one data set
+**3.Merges the training and the test sets to create one data set**
 	x_test_merged (10299 rows, 561 columns) is created by merging x_train and x_test using rbind() function
 	y_test_merged (10299 rows, 1 column) is created by merging y_train and y_test using rbind() function
 	subject_merged (10299 rows, 1 column) is created by merging subject_train and subject_test using rbind() function
 	full_data_merged (10299 rows, 563 column) is created by merging subject_merged, y_test_merged and x_test_merged using cbind() function
 
-4.Extracts only the measurements on the mean and standard deviation for each measurement
-	extracted_measures (10299 rows, 88 columns) is created by subsetting Merged_Data, selecting only columns: subject, code and the measurements on the mean and standard deviation (std) for each measurement
+**4.Extracts only the measurements on the mean and standard deviation for each measurement**
+	extracted_measures (10299 rows, 88 columns) is created by subsetting Merged_Data, selecting only columns: subject, code and the measurements on the mean and standard 	deviation (std) for each measurement
 		
-5.Uses descriptive activity names to name the activities in the data set
+**5.Uses descriptive activity names to name the activities in the data set**
 	Entire numbers in code column of the extracted_measures replaced with corresponding activity taken from second column of the activities variable
 
-6.Appropriately labels the data set with descriptive variable names
+**6.Appropriately labels the data set with descriptive variable names**
 	Subject column in extracted_measure renamed to Participants
 	Activity_Code column in extracted_measure renamed to Activity_Description
 	All Acc in column’s name replaced by Accelerometer
@@ -41,7 +41,7 @@ Dataset downloaded and extracted. Specify the folder that you would like to extr
 	All start with character f in column’s name replaced by Frequency
 	All start with character t in column’s name replaced by Time
 
-5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject
+**5.From the data set in step 4, creates a second, independent tidy data set with the average of each variable for each activity and each subject**
 	final_data (180 rows, 88 columns) is created by sumarizing extracted_measures by taking the means of each variable for each activity and each subject, after groupped by subject and activity.
 	Export final_data into Final_Data.txt file.
 
